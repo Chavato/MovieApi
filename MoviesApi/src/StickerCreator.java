@@ -3,7 +3,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 import java.awt.Color;
 import java.awt.Font;
 
@@ -38,7 +37,7 @@ public class StickerCreator {
         graphics.setColor(Color.YELLOW);
         graphics.drawString("TopZera", 0, newHeight - 20);
         // escrever a imagem nova em um arquivo
-        ImageIO.write(newImage, "png", new File("output/" + archiveName));
+        ImageIO.write(newImage, "png", new File("output/" + archiveName.replace(':', '-')));
 
     }
 }
