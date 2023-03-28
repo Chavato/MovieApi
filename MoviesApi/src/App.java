@@ -1,5 +1,6 @@
-import java.io.Console;
+import java.io.InputStream;
 import java.net.URI;
+import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -31,6 +32,7 @@ public class App {
         char star = '\u2B50';
 
         for (Map<String, String> filme : listaDeFilmes) {
+
             System.out.printf("\n Titulo: %s", filme.get("title"));
             System.out.printf("\n Poster: %s", filme.get("image"));
             System.out.printf("\n" + ANSI_BACKGROUND + "Classificação: %s", filme.get("imDbRating") + ANSI_RESET);
@@ -40,6 +42,10 @@ public class App {
                 System.out.printf("%c", star);
                 count++;
             }
+
+            InputStream inputStream = new URL(filme.get("image")).openStream();
+            var stickerCreator = new StickerCreator();
+            stickerCreator.create(inputStream, filme.get("title") + ".png");
             System.out.println();
         }
     }
