@@ -55,7 +55,7 @@ public class StickerCreator {
         graphics.setColor(Color.WHITE);
         graphics.draw(outline);
 
-        ImageIO.write(newImage, "png", new File("output/" + archiveName.replace(':', '-')));
+        ImageIO.write(newImage, "png", new File("MoviesApi/output/" + archiveName.replace(':', '-')));
 
     }
 }
